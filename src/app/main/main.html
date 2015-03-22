@@ -3,9 +3,13 @@
         <header ng-include="'components/navbar/navbar.html'"></header>
         <section class="videogular-container">
             <!-- <pre>{{config|json}}</pre> -->
+            <md-checkbox ng-model="isChecked" aria-label="Finished?">
+                Finished ?
+            </md-checkbox>
             <videogular vg-theme="config.theme.url">
                 <vg-media vg-src="config.sources" vg-tracks="config.tracks" vg-native-controls="true">
                 </vg-media>
+                <vg-overlay-play></vg-overlay-play>
             </videogular>
             <!-- <md-button class="md-primary" ng-click="showDialog($event)" md-ink-ripple md-ink-ripple-button>Launch Dialog</md-button> -->
         </section>
