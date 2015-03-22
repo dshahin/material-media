@@ -1,34 +1,36 @@
-<div layout="vertical" layout-fill>
-    <md-content>
-        <header ng-include="'components/navbar/navbar.html'"></header>
-        <section class="videogular-container">
-            <!-- <pre>{{config|json}}</pre> -->
-            <md-checkbox ng-model="isChecked" aria-label="Finished?">
-                Finished ?
-            </md-checkbox>
-            <videogular vg-theme="config.theme.url">
-                <vg-media vg-src="config.sources" vg-tracks="config.tracks" vg-native-controls="true">
-                </vg-media>
-                <vg-overlay-play></vg-overlay-play>
-            </videogular>
-            <!-- <md-button class="md-primary" ng-click="showDialog($event)" md-ink-ripple md-ink-ripple-button>Launch Dialog</md-button> -->
-        </section>
-        <div class="techs md-content" layout-align="center">
-            <md-card ng-repeat="awesomeThing in awesomeThings | orderBy:'rank'">
-                <md-card-content>
-                    <img class="pull-right" ng-src="assets/images/{{awesomeThing.logo}}" alt="{{awesomeThing.title}}">
-                    <div class="caption">
-                        <h3>{{awesomeThing.title}}</h3>
-                        <p>{{awesomeThing.description}}</p>
-                        <p><a ng-href="{{awesomeThing.url}}">{{awesomeThing.url}}</a></p>
-                    </div>
-                </md-card-content>
-            </md-card>
+<div layout="column" layout-fill>
+    <md-toolbar  md-scroll-shrink class="md-toolbar-tools md-primary">
+        <div >
+            <h1>
+                <span>My Videos</span> <md-button class="md-primary">dsfd</md-button>
+            </h1>
         </div>
-        <footer>
-            <md-toolbar layout="row" layout-align="center center">
-                <p>With ♥ from <a href="https://twitter.com/Swiip">@Swiip</a></p>
-            </md-toolbar>
-        </footer>
+    </md-toolbar>
+    <md-content style="height: 100vh;" >
+        <md-list>
+            <md-item>
+            </md-item>
+            <md-item ng-repeat="item in awesomeThings">
+                <md-item-content >
+                    <div class="md-tile-left" ui-sref="watch({ videoId : item.title})">
+                        <img ng-src="assets/images/{{item.logo}}" alt="{{item.title}}" alt="{{item.title}}" class="face">
+                    </div>
+                    <div class="md-tile-content">
+                        <h3 ui-sref="watch({ videoId : item.title})">{{item.title}}</h3>
+                        <h4><a target="_blank" href="{{item.url}}">{{item.url}}</a></h4>
+                        <p>
+                            {{item.description}}
+                        </p>
+                    </div>
+                    <div class="md-tile-right" style="padding-right:15px;">
+                    <md-button class="md-fab md-primary md-hue-3" aria-label="Profile">
+                        <i class="fa fa-2x" style="color:pink;" ng-click="item.fave = !item.fave" ng-class="{'fa-heart':item.fave,'fa-heart-o':!item.fave}"></i>
+                    </md-button>
+                        
+                    </div>
+                </md-item-content>
+                <md-divider inset></md-divider>
+            </md-item>
+        </md-list>
     </md-content>
 </div>

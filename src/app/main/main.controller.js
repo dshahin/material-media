@@ -43,42 +43,50 @@ angular.module('materialMedia')
             'title': 'AngularJS',
             'url': 'https://angularjs.org/',
             'description': 'HTML enhanced for web apps!',
-            'logo': 'angular.png'
+            'logo': 'angular.png',
+            'fave' : true
         }, {
             'title': 'BrowserSync',
             'url': 'http://browsersync.io/',
             'description': 'Time-saving synchronised browser testing.',
-            'logo': 'browsersync.png'
+            'logo': 'browsersync.png',
+            'fave' : false
         }, {
             'title': 'GulpJS',
             'url': 'http://gulpjs.com/',
             'description': 'The streaming build system.',
-            'logo': 'gulp.png'
+            'logo': 'gulp.png',
+            'fave' : true
         }, {
             'title': 'Jasmine',
             'url': 'http://jasmine.github.io/',
             'description': 'Behavior-Driven JavaScript.',
-            'logo': 'jasmine.png'
+            'logo': 'jasmine.png',
+            'fave' : false
         }, {
             'title': 'Karma',
             'url': 'http://karma-runner.github.io/',
             'description': 'Spectacular Test Runner for JavaScript.',
-            'logo': 'karma.png'
+            'logo': 'karma.png',
+            'fave' : true
         }, {
             'title': 'Protractor',
             'url': 'https://github.com/angular/protractor',
             'description': 'End to end test framework for AngularJS applications built on top of WebDriverJS.',
-            'logo': 'protractor.png'
+            'logo': 'protractor.png',
+            'fave' : false
         }, {
             'title': 'Angular Material Design',
             'url': 'https://material.angularjs.org/#/',
             'description': 'The Angular reference implementation of the Google\'s Material Design specification.',
-            'logo': 'angular-material.png'
+            'logo': 'angular-material.png',
+            'fave' : true
         }, {
             'title': 'Videogular',
             'url': 'http://www.videogular.com/',
             'description': 'Simple Angular Video',
-            'logo': 'angular-material.png'
+            'logo': 'angular-material.png',
+            'fave' : false
         }];
         angular.forEach($scope.awesomeThings, function(awesomeThing) {
             awesomeThing.rank = Math.random();

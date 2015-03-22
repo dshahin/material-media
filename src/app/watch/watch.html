@@ -1,0 +1,24 @@
+<div layout="column" layout-fill>
+    <md-toolbar  md-scroll-shrink>
+        <div class="md-toolbar-tools">
+            <h1>
+                <span>Watch {{WC.videoId}}</span>
+            </h1>
+        </div>
+    </md-toolbar>
+    <md-content >
+        <section class="videogular-container">
+            <!-- <pre>{{config|json}}</pre> -->
+            <md-checkbox ng-model="isChecked" aria-label="Finished?">
+                Finished ?
+            </md-checkbox>
+            <videogular vg-theme="WC.config.theme.url">
+                
+                
+                <vg-media vg-src="WC.config.sources" vg-tracks="WC.config.tracks" vg-native-controls="true">
+                </vg-media>
+            </videogular>
+            <!-- <md-button class="md-primary" ng-click="showDialog($event)" md-ink-ripple md-ink-ripple-button>Launch Dialog</md-button> -->
+        </section>
+    </md-content>
+</div>

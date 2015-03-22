@@ -9,14 +9,23 @@ angular.module('materialMedia', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ui.route
 								'com.2fdevs.videogular.plugins.poster'
 
 	])
-  .config(function ($stateProvider, $urlRouterProvider) {
+  .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
+
+  	$mdThemingProvider.theme('default')
+    .primaryPalette('grey')
+    .accentPalette('orange');
+
     $stateProvider
       .state('home', {
         url: '/',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
+      })
+      .state('watch', {
+        url: '/watch/:videoId',
+        templateUrl: 'app/watch/watch.html',
+        controller: 'WatchController as WC'
       });
 
     $urlRouterProvider.otherwise('/');
-  })
-;
+  });
