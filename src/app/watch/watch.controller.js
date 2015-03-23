@@ -1,9 +1,15 @@
 'use strict';
 
 angular.module('materialMedia')
-    .controller('WatchController', function($scope, $mdDialog, $sce, $stateParams) {
+    .controller('WatchController', function($log, $scope, $mdDialog, $sce, $stateParams) {
         var WC = this;
         WC.videoId = $stateParams.videoId;
+        WC.API = null;
+            
+        WC.onPlayerReady = function(API) {
+            WC.API = API;
+        };
+
         WC.config = {
             preload: "none",
             sources: [{
@@ -25,15 +31,25 @@ angular.module('materialMedia')
             }],
             theme: {
                 url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
+            },
+            plugins: {
+                poster: "/assets/images/angular.png"
             }
         };
         var alert;
-        WC.showDialog = function($event) {
+        WC.bookmarks = [
+            {time: '100'}
+        ];
+        WC.bookmark = function(currentTime) {
+            WC.API.pause();
             alert = $mdDialog.alert({
-                title: 'Attention',
-                content: 'This is an example of how easy dialogs can be!',
-                ok: 'Close'
+                title: 'Bookmark',
+                content: 'current time:' + currentTime,
+                ok: 'Make a bookmark'
             });
+
+            var mark = {time: currentTime};
+            WC.bookmarks.push(mark);
 
             $mdDialog
                 .show(alert)

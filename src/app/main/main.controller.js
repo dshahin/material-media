@@ -93,4 +93,14 @@ angular.module('materialMedia')
         });
 
 
-    });
+    })
+
+    .directive("bookmarkButton",
+        function() {
+            return {
+                restrict: "E",
+                require: "^videogular",
+                template: "<div class='iconButton' ng-click='WC.bookmark(currentTime)'><i class='fa fa-bookmark'><md-tooltip>bookmark</md-tooltip></i></div>"
+            }
+        }
+    );
