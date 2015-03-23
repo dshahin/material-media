@@ -2,7 +2,14 @@
     <md-toolbar  md-scroll-shrink class="md-toolbar-tools md-primary">
         <div >
             <h1>
-                <span>My Videos</span> <md-button class="md-primary">dsfd</md-button>
+                <md-button class="md-fab md-primary md-hue-3" aria-label="Profile">
+                    <a href="#/main">
+                        <i class="fa fa-home fa-2x" ng-click="item.fave = !item.fave" ></i>
+                    </a>
+                    
+                </md-button>
+
+                <span>My Videos</span> <md-button class="md-warn">dsfd</md-button>
             </h1>
         </div>
     </md-toolbar>
@@ -11,20 +18,26 @@
             <md-item>
             </md-item>
             <md-item ng-repeat="item in awesomeThings">
-                <md-item-content >
-                    <div class="md-tile-left" ui-sref="watch({ videoId : item.title})">
+                <md-item-content class="clickable">
+                    <div class="md-tile-left clickable" ui-sref="watch({ videoId : item.title})">
                         <img ng-src="assets/images/{{item.logo}}" alt="{{item.title}}" alt="{{item.title}}" class="face">
+                        <md-tooltip>Watch video</md-tooltip>
                     </div>
-                    <div class="md-tile-content">
-                        <h3 ui-sref="watch({ videoId : item.title})">{{item.title}}</h3>
-                        <h4><a target="_blank" href="{{item.url}}">{{item.url}}</a></h4>
+                    <div class="md-tile-content clickable" ui-sref="watch({ videoId : item.title})">
+                        <h3 ui-sref="watch({ videoId : item.title})" >
+                            {{item.title}}
+                            
+                        </h3>
+                        <h4>{{item.url}}</h4>
                         <p>
                             {{item.description}}
                         </p>
+                        <md-tooltip md-direction="left">Watch video</md-tooltip>
                     </div>
                     <div class="md-tile-right" style="padding-right:15px;">
-                    <md-button class="md-fab md-primary md-hue-3" aria-label="Profile">
-                        <i class="fa fa-2x" style="color:pink;" ng-click="item.fave = !item.fave" ng-class="{'fa-heart':item.fave,'fa-heart-o':!item.fave}"></i>
+                    <md-button class="md-fab md-primary md-hue-3" aria-label="Profile" ng-click="item.fave = !item.fave">
+                        <i class="fa fa-2x" style="color:pink;"  ng-class="{'fa-heart':item.fave,'fa-heart-o':!item.fave}"></i>
+                        <md-tooltip md-direction="left">Make favorite</md-tooltip>
                     </md-button>
                         
                     </div>

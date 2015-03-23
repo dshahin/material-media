@@ -22,7 +22,9 @@ html {
 .thumbnail img.pull-right {
   width: 50px;
 }
-
+.clickable {
+  cursor: pointer;
+}
 
 section.jumbotron {
   margin-bottom: 30px;

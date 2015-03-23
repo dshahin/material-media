@@ -2,6 +2,11 @@
     <md-toolbar  md-scroll-shrink>
         <div class="md-toolbar-tools">
             <h1>
+                <md-button class="md-fab md-primary md-hue-3" aria-label="Profile">
+                    <a href="#/main">
+                        <i class="fa fa-home fa-2x" ng-click="item.fave = !item.fave" ></i>
+                    </a>
+                </md-button>
                 <span>Watch {{WC.videoId}}</span>
             </h1>
         </div>

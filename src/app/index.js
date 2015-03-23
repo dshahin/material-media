@@ -12,8 +12,9 @@ angular.module('materialMedia', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ui.route
   .config(function ($stateProvider, $urlRouterProvider, $mdThemingProvider) {
 
   	$mdThemingProvider.theme('default')
-    .primaryPalette('grey')
-    .accentPalette('orange');
+    .primaryPalette('light-green')
+    .accentPalette('green')
+    .warnPalette('red');
 
     $stateProvider
       .state('home', {
