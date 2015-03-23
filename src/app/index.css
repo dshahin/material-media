@@ -84,7 +84,6 @@ section.jumbotron h1 {
   .videogular-container {
     width: 940px;
     height: 528.75px;
-    height: 100%;
   }
 
   .videogular-container.audio {
@@ -97,7 +96,6 @@ section.jumbotron h1 {
   .videogular-container {
     width: 728px;
     height: 409.5px;
-    height: 100%;
   }
 
   .videogular-container.audio {
