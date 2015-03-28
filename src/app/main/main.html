@@ -16,8 +16,8 @@
     <md-content style="height: 100vh;" >
         <md-list>
             <md-item ng-repeat="item in awesomeThings">
-                <md-item-content class="clickable">
-                    <div class="md-tile-left clickable" ui-sref="watch({ videoId : item.title})">
+                <md-item-content class="clickable" style="padding-left: 10px;">
+                    <div class="md-tile-left clickable" ui-sref="watch({ videoId : item.title})" >
                         <img ng-src="assets/images/{{item.logo}}" alt="{{item.title}}" alt="{{item.title}}" class="face">
                         <md-tooltip>Watch video</md-tooltip>
                     </div>

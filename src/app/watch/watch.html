@@ -13,48 +13,68 @@
                 </h1>
             </div>
         </md-toolbar>
+        <div layout="row" >
         <md-content>
-            <section class="videogular-container">
-                <!-- <pre>{{config|json}}</pre> -->
-                <md-checkbox ng-model="isChecked" aria-label="Finished?">
-                    Finished ?
-                </md-checkbox>
-                <videogular vg-theme="WC.config.theme.url" vg-player-ready="WC.onPlayerReady($API)">
-                    <vg-media vg-src="WC.config.sources" vg-tracks="WC.config.tracks" vg-native-controls="false">
-                    </vg-media>
-                    <vg-controls>
-                        <vg-play-pause-button></vg-play-pause-button>
-                        <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
-                        <vg-scrub-bar>
-                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
-                        </vg-scrub-bar>
-                        <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
-                        <vg-time-display>{{ totalTime | date:'mm:ss' }}</vg-time-display>
-                        <vg-volume>
-                            <vg-mute-button></vg-mute-button>
-                            <vg-volume-bar></vg-volume-bar>
-                        </vg-volume>
-                        <vg-fullscreen-button></vg-fullscreen-button>
-                        <bookmark-button></bookmark-button>
-                    </vg-controls>
-                    <vg-overlay-play></vg-overlay-play>
-                    <vg-poster vg-url='WC.config.plugins.poster'></vg-poster>
-                </videogular>
-                <!-- <md-button class="md-primary" ng-click="showDialog($event)" md-ink-ripple md-ink-ripple-button>Launch Dialog</md-button> -->
-            </section>
+            <md-toolbar md-scroll-shrink class="md-accent">
+                <div class="md-toolbar-tools">
+                <h3>
+                    
+                    <span>Bookmarks</span>
+                </h3>
+            </div>
+        </md-toolbar>
 
-            <md-list>
-                <md-item ng-repeat="bookmark in WC.bookmarks">
-                    <md-item-content class="clickable">
-                        <div class="md-tile-left clickable" ng-click="WC.API.seekTime(bookmark.time/1000)">
-                            <i class="fa fa-bookmark fa-4x"></i>{{bookmark.time| date:'mm:ss' }}
-                            
-                        </div>
+
+            
+                <div layout="column" style="width:20vw;" layout-fill>
+                    <md-list>
+                        <md-item ng-repeat="bookmark in WC.bookmarks | orderBy:time" layout-fill>
+                            <md-item-content class="clickable" style="padding:5px;">
+                                <div class="md-tile-left clickable" ng-click="WC.API.seekTime(bookmark.time/1000)">
+                                    <i class="fa fa-bookmark fa-4x" style="color:green;"></i>{{bookmark.time| date:'mm:ss' }}
+                                    
+                                </div>
+                                
+                            </md-item-content>
+                            <md-divider inset></md-divider>
+                        </md-item>
+                    </md-list>
+                </div>
+            </md-content>
+            <md-content>
+                <div layout="column" layout-fill>
+                    <section class="videogular-container">
+                        <!-- <pre>{{config|json}}</pre> -->
                         
-                    </md-item-content>
-                    <md-divider inset></md-divider>
-                </md-item>
-            </md-list>
-        </md-content>
+                        <videogular vg-theme="WC.config.theme.url" vg-player-ready="WC.onPlayerReady($API)">
+                            <vg-media vg-src="WC.config.sources" vg-tracks="WC.config.tracks" vg-native-controls="false">
+                            </vg-media>
+                            <vg-controls>
+                                <vg-play-pause-button></vg-play-pause-button>
+                                <vg-time-display>{{ currentTime | date:'mm:ss' }}</vg-time-display>
+                                <vg-scrub-bar>
+                                    <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                                </vg-scrub-bar>
+                                <vg-time-display>{{ timeLeft | date:'mm:ss' }}</vg-time-display>
+                                <vg-time-display>{{ totalTime | date:'mm:ss' }}</vg-time-display>
+                                <vg-volume>
+                                    <vg-mute-button></vg-mute-button>
+                                    <vg-volume-bar></vg-volume-bar>
+                                </vg-volume>
+                                <vg-fullscreen-button></vg-fullscreen-button>
+                                <bookmark-button></bookmark-button>
+                            </vg-controls>
+                            <vg-overlay-play></vg-overlay-play>
+                            <vg-poster vg-url='WC.config.plugins.poster'></vg-poster>
+                        </videogular>
+                        <!-- <md-button class="md-primary" ng-click="showDialog($event)" md-ink-ripple md-ink-ripple-button>Launch Dialog</md-button> -->
+                        <md-checkbox ng-model="isChecked" aria-label="Finished?">
+                            Finished ?
+                        </md-checkbox>
+                    </section>
+                </div>
+            </md-content>
+            
+        </div>
     </div>
 </div>

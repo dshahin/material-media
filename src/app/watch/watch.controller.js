@@ -42,20 +42,23 @@ angular.module('materialMedia')
         ];
         WC.bookmark = function(currentTime) {
             WC.API.pause();
-            alert = $mdDialog.alert({
+            $mdDialog.show({
                 title: 'Bookmark',
                 content: 'current time:' + currentTime,
-                ok: 'Make a bookmark'
+                ok: 'Make a bookmark',
+                controller : 'bookmarkController as BC',
+                templateUrl: 'app/watch/bookmark.dialog.html',
+                locals: { currentTime: currentTime }
             });
 
             var mark = {time: currentTime};
             WC.bookmarks.push(mark);
 
-            $mdDialog
-                .show(alert)
-                .finally(function() {
-                    alert = undefined;
-                });
+            // $mdDialog
+            //     .show(alert)
+            //     .finally(function() {
+            //         alert = undefined;
+            //     });
         }
         
 

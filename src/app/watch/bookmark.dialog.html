@@ -1,0 +1,12 @@
+<md-dialog>
+    <md-content> <i class="fa fa-clock-o" />{{ BC.currentTime | date:'mm:ss' }}!</md-content>
+    <div class="md-actions">
+        <md-input-container>
+            <label>Username</label>
+            <input type="textarea" ng-model="user.name">
+        </md-input-container>
+        <md-button class="md-hue-2">
+            <i class="fa fa-bookmark" /> Bookmark
+        </md-button>
+    </div>
+</md-dialog>
