@@ -24,6 +24,25 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <md-toolbar  md-scroll-shrink class="md-toolbar-tools md-primary" ng-controller="NavbarCtrl as NAV">
+        <div >
+            <h1>
+             
+                <md-button class="md-fab md-primary md-hue-3" aria-label="Profile"><a href="#/main" >
+                        <ng-md-icon icon="{{$state.current.icon}}" style="fill: darkgreen" size="48" options='{"rotation": "counterclock"}'></ng-md-icon>
+                    </a> 
+                </md-button>
+
+
+                <span>{{$state.current.name}}</span> 
+                
+            </h1>
+            <ul>
+                
+            </ul>
+        </div>
+    </md-toolbar>
+    <ng-include src="components/navbar/navbar.html" scope="" onload=""></ng-include>
     <div ui-view></div>
 
     

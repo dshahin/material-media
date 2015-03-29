@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('materialMedia')
-    .controller('WatchController', function($log, $scope, $mdDialog, $sce, $stateParams) {
+    .controller('WatchController', function($log, $scope, $rootScope, $mdDialog, $sce, $stateParams) {
         var WC = this;
         WC.videoId = $stateParams.videoId;
         WC.API = null;
@@ -37,9 +37,7 @@ angular.module('materialMedia')
             }
         };
         var alert;
-        WC.bookmarks = [
-            {time: '100'}
-        ];
+        $rootScope.bookmarks = [];
         WC.bookmark = function(currentTime) {
             WC.API.pause();
             $mdDialog.show({
@@ -48,11 +46,13 @@ angular.module('materialMedia')
                 ok: 'Make a bookmark',
                 controller : 'bookmarkController as BC',
                 templateUrl: 'app/watch/bookmark.dialog.html',
-                locals: { currentTime: currentTime }
+                locals: { currentTime: currentTime },
+                onComplete: WC.bookmarkComplete
+            }).finally(function(bookmark) {
+                $log.log('bookmark?', bookmark);
             });
 
-            var mark = {time: currentTime};
-            WC.bookmarks.push(mark);
+            
 
             // $mdDialog
             //     .show(alert)
@@ -61,6 +61,9 @@ angular.module('materialMedia')
             //     });
         }
         
+        WC.bookmarkComplete = function(scope, element, options){
+            $log.log('done');
 
+        }
 
     });

@@ -100,7 +100,7 @@ angular.module('materialMedia')
             return {
                 restrict: "E",
                 require: "^videogular",
-                template: "<div class='iconButton' ng-click='WC.bookmark(currentTime)'><i class='fa fa-bookmark'><md-tooltip>bookmark</md-tooltip></i></div>"
+                template: "<div class='iconButton' ng-click='WC.bookmark(currentTime)'><i class='fa fa-film'><md-tooltip>bookmark</md-tooltip></i></div>"
             }
         }
     );

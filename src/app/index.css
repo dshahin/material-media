@@ -70,8 +70,8 @@ section.jumbotron h1 {
 
 @media (min-width: 1200px) {
   .videogular-container {
-    width: 70wv;
-    height: 100%;
+    width: 80vw;
+    height: 45vw;
   }
 
   .videogular-container.audio {
@@ -82,8 +82,8 @@ section.jumbotron h1 {
 
 @media (min-width: 992px) and (max-width: 1199px) {
   .videogular-container {
-    width: 940px;
-    height: 528.75px;
+    width: 80vw;
+    height: 45vw;
   }
 
   .videogular-container.audio {
@@ -92,10 +92,12 @@ section.jumbotron h1 {
   }
 }
 
-@media (min-width: 768px) and (max-width: 991px) {
+
+
+@media (min-width: 300px) and (max-width: 991px) {
   .videogular-container {
-    width: 728px;
-    height: 409.5px;
+    width: 100vw;
+    height: 56.25vw;
   }
 
   .videogular-container.audio {
@@ -118,4 +120,12 @@ videogular bookmark-button a:hover,
 videogular bookmark-button a:visited {
     color: white;
     text-decoration: none;
+}
+
+.bookmark.ng-enter {
+    animation: bounceInLeft 1s;
+}
+
+.bookmark.ng-enter-active {
+    animation: bounceInLeft 1s;
 }
