@@ -1,29 +1,53 @@
 'use strict';
 
 angular.module('materialMedia')
-    .controller('WatchController', function($log, $scope, $rootScope, $mdDialog, $sce, $stateParams) {
+    .controller('WatchController', function($log, $scope, $rootScope, $mdDialog, $sce, $stateParams, DataFactory) {
         var WC = this;
         WC.videoId = $stateParams.videoId;
-        WC.API = null;
+        $rootScope.videoId = WC.videoId;
+        $rootScope.API = null;
             
         WC.onPlayerReady = function(API) {
-            WC.API = API;
+            $rootScope.API = API;
+        };
+
+        DataFactory.Videos().then(function(videos){
+            $rootScope.videos = videos;
+        }).then(function(){
+            DataFactory.getUserSettings().then(function(userSettings){
+                $rootScope.userSettings = userSettings;
+                if(!userSettings.bookmarks[WC.videoId] || !userSettings.bookmarks[WC.videoId].length ){
+                    userSettings.bookmarks[WC.videoId] =[];
+                }
+                $rootScope.bookmarks = userSettings.bookmarks[WC.videoId];
+                //userSettings.bookmarks[WC.videoId] =[];
+                userSettings.debug = !userSettings.debug;
+                DataFactory.setUserSettings();
+            });
+        });
+
+        
+        WC.deleteBookmark = function($index){
+            $log.log('delete ' + $index);
+            $rootScope.bookmarks.splice($index,1);
+            DataFactory.setUserSettings();
+        };
+
+        WC.onBookmarkChange =  function(e){
+            DataFactory.setUserSettings();
         };
 
         WC.config = {
             preload: "none",
             sources: [{
-                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"),
+                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov"),
                 type: "video/mp4"
             }, {
-                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"),
-                type: "video/webm"
-            }, {
-                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.ogg"),
+                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_stereo.ogg"),
                 type: "video/ogg"
             }],
             tracks: [{
-                src: "/assets/subs/pale-blue-dot.vtt",
+                src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
                 kind: "subtitles",
                 srclang: "en",
                 label: "English",
@@ -37,13 +61,23 @@ angular.module('materialMedia')
             }
         };
         var alert;
-        $rootScope.bookmarks = [];
+
+        // DataFactory.getBookmarks().then(function(bookmarks){
+        //     console.log('here are the bookmarks');
+        //     $rootScope.bookmarks = bookmarks;
+        // }).then(function(){
+        //     //WC.bookmarks = $rootScope.bookmarks[WC.videoId];
+        //     WC.bookmarks = [];
+        // });
+
+        
+        
         WC.bookmark = function(currentTime) {
-            WC.API.pause();
+            $rootScope.API.pause();
             $mdDialog.show({
                 title: 'Bookmark',
                 content: 'current time:' + currentTime,
-                ok: 'Make a bookmark',
+                ok: foo,
                 controller : 'bookmarkController as BC',
                 templateUrl: 'app/watch/bookmark.dialog.html',
                 locals: { currentTime: currentTime },
@@ -52,18 +86,33 @@ angular.module('materialMedia')
                 $log.log('bookmark?', bookmark);
             });
 
-            
-
-            // $mdDialog
-            //     .show(alert)
-            //     .finally(function() {
-            //         alert = undefined;
-            //     });
         }
-        
+
+        function foo(){
+            alert('foo');
+        };
+        $rootScope.wasFullScreen = false;
         WC.bookmarkComplete = function(scope, element, options){
+            if($rootScope.API.isFullScreen){
+                $rootScope.wasFullScreen = true;
+                $rootScope.API.toggleFullScreen();
+            }
             $log.log('done');
-
+            //$rootScope.API.play();
+            $('#bookmarkDescription').focus();
         }
+
+
+
+        $(document).keydown(function(e) {
+            
+            if( e.which === 66 && (e.metaKey || e.ctrlKey)){
+                e.preventDefault(); // prevent the default action (scroll / move caret)
+                $log.log(e);
+                WC.bookmark($rootScope.API.currentTime);
+            }
+            
+            
+        });
 
     });

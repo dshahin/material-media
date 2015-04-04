@@ -1,9 +1,9 @@
 <md-dialog>
-    <md-content> <i class="fa fa-film fa-2x" />{{ BC.currentTime | date:'mm:ss' }}!</md-content>
+    <md-content> <i class="fa fa-film fa-2x" /> {{ BC.currentTime | date:'mm:ss' }} {{BC.bookmark.description}}</md-content>
     <div class="md-actions">
         <md-input-container>
             <label>Description</label>
-            <input type="textarea" ng-model="BC.bookmark.description">
+            <input id="bookmarkDescription" type="textarea" ng-model="BC.bookmark.description">
         </md-input-container>
 
         <md-button class="md-hue-2" ng-click="BC.addBookmark(BC.currentTime)">

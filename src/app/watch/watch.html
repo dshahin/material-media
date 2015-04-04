@@ -1,5 +1,8 @@
 <div layout="row">
+
     <div layout-gt-md="row" layout-lt-md="column" layout-md="column" layout-margin layout-fill layout-padding>
+
+        
 
         <div class="videogular-container" layout-fill flex-order-sm="1" flex-order-md="1"  flex-order-lt-md="1" flex-order-gt-md="2" >
             <!-- <pre>{{config|json}}</pre> -->
@@ -33,12 +36,18 @@
         <div flex="20" flex-order-sm="2"  flex-order-md="2" flex-order-gt-md="1" ng-show="bookmarks.length > 0" >
             <md-list>
                 <md-item ng-repeat="bookmark in bookmarks | orderBy:time" layout-fill ng-animate="'animate'" class="bookmark">
-                    <md-item-content class="clickable" style="padding:5px;">
-                        <div layout="row"class="md-tile-left clickable" ng-click="WC.API.seekTime(bookmark.time/1000)" layout-padding>
-                            <i class="fa fa-film fa-4x" style="color:#8BC34A;"></i>
+                    <md-item-content style="padding:5px;">
+                        <div layout="row"class="md-tile-left clickable"  layout-padding>
                             <div layout=column layout-padding>
-                                <div>{{bookmark.time| date:'mm:ss' }}</div>
-                                <div>{{bookmark.description}}</div>
+                                <i class="fa fa-film fa-4x" style="color:#8BC34A;" ng-click="API.seekTime(bookmark.time/1000)"></i>
+                            </div>
+                            <div layout="column" layout-padding>
+                                <div layout="row" ng-click="API.seekTime(bookmark.time/1000)">{{bookmark.time| date:'mm:ss' }}</div>
+                                <div layout="row" contenteditable>
+                                    <input type="text" ng-model="bookmark.description" ng-change="WC.onBookmarkChange()" ></input>
+                                </div>
+                                <div layout="row" contenteditable><i class="fa fa-trash" ng-click="WC.deleteBookmark($index)"></i></div>
+                                
                             </div>
                         </div>
                     </md-item-content>
