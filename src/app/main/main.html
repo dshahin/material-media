@@ -3,11 +3,11 @@
             <md-item ng-repeat="video in videos">
                 <md-item-content layout-padding>
                     <div class="md-tile-left clickable" ui-sref="watch({ videoId : video.id})" >
-                        <img ng-src="assets/images/{{video.logo}}" alt="{{video.title}}" alt="{{video.title}}" class="face">
+                        <img ng-src="assets/images/{{video.logo}}" alt="{{video.title}}" alt="{{video.title}}" class="thumbnail">
                         <md-tooltip>Watch video</md-tooltip>
                     </div>
-                    <div class="md-tile-content clickable" ui-sref="watch({ videoId : video.title})" layout-padding>
-                        <h3 ui-sref="watch({ videoId : video.title})" >
+                    <div class="md-tile-content clickable" ui-sref="watch({ videoId : video.id})" layout-padding>
+                        <h3 ui-sref="watch({ videoId : video.id})" >
                             {{video.title}}
                             
                         </h3>

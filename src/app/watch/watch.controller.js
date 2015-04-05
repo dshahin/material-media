@@ -37,15 +37,26 @@ angular.module('materialMedia')
             DataFactory.setUserSettings();
         };
 
+        WC.videos = [
+            {
+                sources: [
+                    {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.mp4"), type: "video/mp4"},
+                    {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.webm"), type: "video/webm"},
+                    {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/videogular.ogg"), type: "video/ogg"}
+                ]
+            },
+            {
+                sources: [
+                    {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov"), type: "video/mp4"},
+                    {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_stereo.ogg"), type: "video/ogg"}
+                ]
+            }
+        ];
+
+
         WC.config = {
             preload: "none",
-            sources: [{
-                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov"),
-                type: "video/mp4"
-            }, {
-                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_stereo.ogg"),
-                type: "video/ogg"
-            }],
+            sources: WC.videos[WC.videoId].sources,
             tracks: [{
                 src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
                 kind: "subtitles",
@@ -57,7 +68,7 @@ angular.module('materialMedia')
                 url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
             },
             plugins: {
-                poster: "/assets/images/angular.png"
+                poster: "assets/images/angular.png"
             }
         };
         var alert;

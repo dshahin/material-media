@@ -3,9 +3,10 @@
     <div layout-gt-md="row" layout-lt-md="column" layout-md="column" layout-margin layout-fill layout-padding>
 
         
-
+        
         <div class="videogular-container" layout-fill flex-order-sm="1" flex-order-md="1"  flex-order-lt-md="1" flex-order-gt-md="2" >
             <!-- <pre>{{config|json}}</pre> -->
+
             <videogular vg-theme="WC.config.theme.url" vg-player-ready="WC.onPlayerReady($API)">
                 <vg-media vg-src="WC.config.sources" vg-tracks="WC.config.tracks" vg-native-controls="false">
                 </vg-media>
@@ -27,18 +28,19 @@
                 <vg-overlay-play></vg-overlay-play>
                 <vg-poster vg-url='WC.config.plugins.poster'></vg-poster>
             </videogular>
+
             <!-- <md-button class="md-primary" ng-click="showDialog($event)" md-ink-ripple md-ink-ripple-button>Launch Dialog</md-button> -->
             <md-checkbox ng-model="isChecked" aria-label="Finished?">
                 Finished ?
             </md-checkbox>
         </div>
 
-        <div flex="20" flex-order-sm="2"  flex-order-md="2" flex-order-gt-md="1" ng-show="bookmarks.length > 0" >
+        <div flex="20" flex-order-sm="2"  flex-order-md="2" flex-order-gt-md="1" ng-show="bookmarks.length > 0"  class="bookmarksColumn">
             <md-list>
                 <md-item ng-repeat="bookmark in bookmarks | orderBy:time" layout-fill ng-animate="'animate'" class="bookmark">
                     <md-item-content style="padding:5px;">
                         <div layout="row"class="md-tile-left clickable"  layout-padding>
-                            <div layout=column layout-padding>
+                            <div layout=column layout-padding hide-lt-lg>
                                 <i class="fa fa-film fa-4x" style="color:#8BC34A;" ng-click="API.seekTime(bookmark.time/1000)"></i>
                             </div>
                             <div layout="column" layout-padding>
@@ -55,6 +57,8 @@
                 </md-item>
             </md-list>
         </div>
-
+        
     </div>
+    
 </div>
+<div>Try Command-B to bookmark</div>

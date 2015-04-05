@@ -16,7 +16,8 @@ html {
 }
 
 .thumbnail {
-  height: 200px;
+  height: 10vh;
+  width: 10vw;
 }
 
 .thumbnail img.pull-right {
@@ -66,6 +67,11 @@ section.jumbotron h1 {
   margin-top: 20px;
   margin-bottom: 20px;
   overflow: hidden;
+}
+
+.bookmarksColumn{
+    height: 80vh;
+    overflow: scroll;
 }
 
 @media (min-width: 1200px) {

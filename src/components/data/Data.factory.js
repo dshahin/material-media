@@ -37,25 +37,18 @@ function DataFactory($q, $rootScope, $log) {
         var tasks = angular.fromJson(localStorage.getItem("tasks"));
         deferred.resolve([{
             'id' : '0',
-            'title': 'AngularJS',
+            'title': 'Big Blue Dot',
             'url': 'https://angularjs.org/',
             'description': 'HTML enhanced for web apps!',
-            'logo': 'angular.png',
+            'logo': 'pale-blue-dot.jpg',
             'fave' : true
         }, {
             'id' : '1',
-            'title': 'BrowserSync',
+            'title': 'Big Buck Bunny',
             'url': 'http://browsersync.io/',
             'description': 'Time-saving synchronised browser testing.',
-            'logo': 'browsersync.png',
+            'logo': 'bigbuckbunny.png',
             'fave' : false
-        }, {
-            'id' : '2',
-            'title': 'GulpJS',
-            'url': 'http://gulpjs.com/',
-            'description': 'The streaming build system.',
-            'logo': 'gulp.png',
-            'fave' : true
         }]);
 
         return deferred.promise;
