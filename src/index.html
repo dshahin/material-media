@@ -5,6 +5,7 @@
     <title>materialMedia</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
     <!-- build:css({.tmp/serve,src}) styles/vendor.css -->
@@ -29,11 +30,11 @@
             <h1>
              
                 <md-button class="md-fab md-primary md-hue-3" aria-label="Profile"><a href="#/main" >
-                        <ng-md-icon icon="{{$state.current.icon}}" style="fill: darkgreen" size="48" options='{"rotation": "counterclock"}'></ng-md-icon>
+                        <ng-md-icon icon="{{$state.current.icon}}" style="fill: gray" size="48" options='{"rotation": "counterclock"}'></ng-md-icon>
                     </a> 
                 </md-button>
 
-
+                
                 <span>{{$state.current.name}} </span>
                 <span ng-if="$state.current.name === 'watch'">{{videos[videoId].title}}</span> 
                 

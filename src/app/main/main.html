@@ -4,7 +4,7 @@
 
 <div layout="row" layout-fill layout-padding>
         <md-list layout-fill layout-padding>
-            <md-item ng-repeat="video in videos">
+            <md-item ng-repeat="video in videos"  class="video">
                 <md-item-content layout-padding>
                     <div layout="column" layout-align="start end" ui-sref="watch({ videoId : video.id})">
                         <div class="md-tile-left clickable" ui-sref="watch({ videoId : video.id})" >
@@ -24,10 +24,10 @@
                     </div>
                     
                     <div class="md-tile-right" layout-padding >
-                    <md-button class="md-fab md-primary md-hue-3" aria-label="Profile" ng-click="favorite(video)">
-                        <i class="fa fa-2x favorite"   ng-class="{'fa-heart':video.fave,'fa-heart-o':!video.fave}"></i>
-                        <md-tooltip md-direction="left">Make favorite</md-tooltip>
-                    </md-button>
+                        <md-button class="md-fab md-accent md-hue-3" aria-label="Profile" ng-click="favorite(video)">
+                            <i class="fa fa-2x favorite"   ng-class="{'fa-heart':video.fave,'fa-heart-o':!video.fave}"></i>
+                            <md-tooltip md-direction="left">Make favorite</md-tooltip>
+                        </md-button>
                         
                     </div>
                 </md-item-content>

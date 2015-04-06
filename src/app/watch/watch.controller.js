@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('materialMedia')
-    .controller('WatchController', function($log, $scope, $rootScope, $mdDialog, $sce, $stateParams, DataFactory) {
+    .controller('WatchController', function($animate, $log, $scope, $rootScope, $mdDialog, $sce, $stateParams, DataFactory) {
         var WC = this;
         WC.videoId = $stateParams.videoId;
         $rootScope.videoId = WC.videoId;
@@ -82,15 +82,6 @@ angular.module('materialMedia')
             }
         };
         var alert;
-
-        // DataFactory.getBookmarks().then(function(bookmarks){
-        //     console.log('here are the bookmarks');
-        //     $rootScope.bookmarks = bookmarks;
-        // }).then(function(){
-        //     //WC.bookmarks = $rootScope.bookmarks[WC.videoId];
-        //     WC.bookmarks = [];
-        // });
-
         
         
         WC.bookmark = function(currentTime) {
