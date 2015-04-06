@@ -29,16 +29,16 @@
             </md-checkbox>
         </div>
         <md-button class="md-fab md-mini md-accent" aria-label="Mini FAB" ng-click="WC.bookmark(API.currentTime)">
-                <i class="fa fa-bookmark bookmark" style="color:gray;"><md-tooltip md-direction="right">&#8984;B to bookmark</md-tooltip></i>
+                <i class="fa fa-bookmark gray" ><md-tooltip md-direction="right">&#8984;B to bookmark</md-tooltip></i>
             </md-button>
         <div flex="20" flex-order-md="2" flex-order-lt-md="2" class="bookmarksColumn" ng-show="bookmarks.length > 0" >
 
             <md-list>
-                <md-item class="bookmark" ng-repeat="bookmark in bookmarks | orderBy:time" layout-fill ng-animate="'animate'">
+                <md-item  ng-repeat="bookmark in bookmarks | orderBy:time" layout-fill ng-animate="'animate'">
                     <md-item-content style="padding:5px;" >
                         <div layout="row" class="md-tile-left clickable" layout-padding>
                             <div layout=column layout-padding hide-lt-lg>
-                                <i class="fa fa-bookmark fa-2x" style="color:gray;" ng-click="API.seekTime(bookmark.time/1000)"></i>
+                                <i class="fa fa-bookmark fa-2x bookmark"  ng-click="API.seekTime(bookmark.time/1000)"><md-tooltip md-direction="top">Jump</md-tooltip></i>
                             </div>
                             <div layout="column" layout-padding>
                                 <div layout="row" ng-click="API.seekTime(bookmark.time/1000)">{{bookmark.time| date:'mm:ss' }}</div>
@@ -49,7 +49,7 @@
                                     </md-input-container>
                                     
                                 </div>
-                                <div layout="row"><i class="fa fa-trash" ng-click="WC.deleteBookmark($index)"></i></div>
+                                <div layout="row"><i class="fa fa-trash bookmark" ng-click="WC.deleteBookmark($index)"><md-tooltip md-direction="right">Delete Bookmark</md-tooltip></i></div>
                             </div>
                         </div>
                     </md-item-content>

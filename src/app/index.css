@@ -130,9 +130,17 @@ videogular bookmark-button a:visited {
 
 
 
+.bookmark{
+  color: gray;
+}
 
+.bookmark:hover{
+  color:orange;
+}
 
-
+.gray{
+  color:gray;
+}
 
 .bookmark.ng-enter {
     animation: bounceInLeft 1s;
