@@ -42,14 +42,14 @@
                             </div>
                             <div layout="column" layout-padding>
                                 <div layout="row" ng-click="API.seekTime(bookmark.time/1000)">{{bookmark.time| date:'mm:ss' }}</div>
-                                <div layout="row" contenteditable>
+                                <div layout="row">
                                     <md-input-container>
                                         <label>Description</label>
                                         <input type="text" ng-model="bookmark.description" ng-change="WC.onBookmarkChange()"></input>
                                     </md-input-container>
                                     
                                 </div>
-                                <div layout="row" contenteditable><i class="fa fa-trash" ng-click="WC.deleteBookmark($index)"></i></div>
+                                <div layout="row"><i class="fa fa-trash" ng-click="WC.deleteBookmark($index)"></i></div>
                             </div>
                         </div>
                     </md-item-content>
