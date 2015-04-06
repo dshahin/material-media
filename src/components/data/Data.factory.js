@@ -37,9 +37,9 @@ function DataFactory($q, $rootScope, $log) {
         var tasks = angular.fromJson(localStorage.getItem("tasks"));
         deferred.resolve([{
             'id' : '0',
-            'title': 'Dev Challenge #4',
+            'title': 'The Material Media Challenge',
             'url': 'https://angularjs.org/',
-            'description': 'Entry by Dan Shahin.  Please watch and learn about this app.',
+            'description': 'Dev Challenge #4 Entry by Dan Shahin.  Please watch and learn about this app.',
             'logo': 'codescience-logo.png',
             'fave' : true
         }, {
@@ -60,7 +60,7 @@ function DataFactory($q, $rootScope, $log) {
             'id' : '3',
             'title': 'The Chris Shahin Project',
             'url': 'http://browsersync.io/',
-            'description': 'The Ulitimate Rock Experience',
+            'description': 'The Ultimate Rock Experience',
             'logo': 'kiss.jpg',
             'fave' : false
         }, {
