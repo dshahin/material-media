@@ -34,7 +34,8 @@
                 </md-button>
 
 
-                <span>{{$state.current.name}} {{videos[videoId].title}}</span> 
+                <span>{{$state.current.name}} </span>
+                <span ng-if="$state.current.name === 'watch'">{{videos[videoId].title}}</span> 
                 
             </h1>
             <ul>

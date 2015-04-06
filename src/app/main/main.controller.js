@@ -1,27 +1,8 @@
 'use strict';
 
 angular.module('materialMedia')
-    .controller('MainCtrl', function($scope, $rootScope, $mdDialog, $sce, DataFactory) {
-        $scope.config = {
-            preload: "none",
-            sources: [{
-                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov"),
-                type: "video/mp4"
-            }, {
-                src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_stereo.ogg"),
-                type: "video/ogg"
-            }],
-            tracks: [{
-                src: "http://www.videogular.com/assets/subs/pale-blue-dot.vtt",
-                kind: "subtitles",
-                srclang: "en",
-                label: "English",
-                default: ""
-            }],
-            theme: {
-                url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
-            }
-        };
+    .controller('MainCtrl', function($scope, $rootScope, $mdDialog, $sce, $mdToast, DataFactory) {
+        
         var alert;
         $scope.showDialog = function($event) {
             alert = $mdDialog.alert({
@@ -41,7 +22,16 @@ angular.module('materialMedia')
             $rootScope.videos = videos;
         });
         
-
+        $scope.favorite = function(video){
+            video.fave = !video.fave;
+            var msg;
+            if(video.fave){
+                msg= video.title + ' is a favorite';
+            }else{
+                msg= video.title + ' is not a favorite';
+            }
+            $mdToast.show($mdToast.simple().content(msg));
+        }
 
     })
 
@@ -50,7 +40,7 @@ angular.module('materialMedia')
             return {
                 restrict: "E",
                 require: "^videogular",
-                template: "<div class='iconButton' ng-click='WC.bookmark(currentTime)'><i class='fa fa-film'><md-tooltip>bookmark</md-tooltip></i></div>"
+                template: "<div class='iconButton'><i class='fa fa-bookmark-o'><md-tooltip>&#8984;B to bookmark</md-tooltip></i></div>"
             }
         }
     );

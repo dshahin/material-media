@@ -50,6 +50,16 @@ angular.module('materialMedia')
                     {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_h264.mov"), type: "video/mp4"},
                     {src: $sce.trustAsResourceUrl("http://static.videogular.com/assets/videos/big_buck_bunny_720p_stereo.ogg"), type: "video/ogg"}
                 ]
+            },
+            {
+                sources: [
+                    {src: $sce.trustAsResourceUrl("http://cdn-1.metacdn.net/bekprwejz/2QPzGQ/20150405221834-NewProject2.m4v"), type: "video/mp4"}
+                ]
+            },
+            {
+                sources: [
+                    {src: $sce.trustAsResourceUrl("http://cdn-1.metacdn.net/bekprwejz/4XmSGZ/20150405225208-EdisonsFrankensteinWithSoundEffectsdesktop.m4v"), type: "video/mp4"}
+                ]
             }
         ];
 
@@ -68,7 +78,7 @@ angular.module('materialMedia')
                 url: "http://www.videogular.com/styles/themes/default/latest/videogular.css"
             },
             plugins: {
-                poster: "assets/images/angular.png"
+                poster: "assets/images/codescience-logo.png"
             }
         };
         var alert;

@@ -4,9 +4,7 @@ html {
   font-family: 'Roboto Slab', serif;
 }
 
-[layout=row] {
-  flex-direction: row;
-}
+
 
 .browsehappy {
   margin: 0.2em 0;
@@ -16,8 +14,8 @@ html {
 }
 
 .thumbnail {
-  height: 10vh;
-  width: 10vw;
+  height: 10vw;
+  width: 15vw;
 }
 
 .thumbnail img.pull-right {
@@ -136,4 +134,7 @@ videogular bookmark-button a:hover,
 videogular bookmark-button a:visited {
     color: white;
     text-decoration: none;
+}
+.favorite{
+  color: magenta;
 }

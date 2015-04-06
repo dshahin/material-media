@@ -49,6 +49,20 @@ function DataFactory($q, $rootScope, $log) {
             'description': 'Time-saving synchronised browser testing.',
             'logo': 'bigbuckbunny.png',
             'fave' : false
+        }, {
+            'id' : '2',
+            'title': 'The Chris Shahin Project',
+            'url': 'http://browsersync.io/',
+            'description': 'Time-saving synchronised browser testing.',
+            'logo': 'kiss.jpg',
+            'fave' : false
+        }, {
+            'id' : '3',
+            'title': 'Edison\'s Frankenstein',
+            'url': 'http://browsersync.io/',
+            'description': 'Time-saving synchronised browser testing.',
+            'logo': 'frankenstein.jpg',
+            'fave' : false
         }]);
 
         return deferred.promise;

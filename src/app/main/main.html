@@ -1,26 +1,31 @@
-<div layout="row" layout-fill>
+<div layout="row" layout-fill layout-padding>
+    <!-- foo -->
+</div>
+
+<div layout="row" layout-fill layout-padding>
         <md-list layout-fill layout-padding>
             <md-item ng-repeat="video in videos">
                 <md-item-content layout-padding>
-                    <div class="md-tile-left clickable" ui-sref="watch({ videoId : video.id})" >
-                        <img ng-src="assets/images/{{video.logo}}" alt="{{video.title}}" alt="{{video.title}}" class="thumbnail">
-                        <md-tooltip>Watch video</md-tooltip>
+                    <div layout="column" layout-align="start end" ui-sref="watch({ videoId : video.id})">
+                        <div class="md-tile-left clickable" ui-sref="watch({ videoId : video.id})" >
+                            <img ng-src="assets/images/{{video.logo}}" alt="{{video.title}}" alt="{{video.title}}" class="thumbnail">
+                            <md-tooltip md-direction="right">Watch video</md-tooltip>
+                        </div>
                     </div>
-                    <div class="md-tile-content clickable" ui-sref="watch({ videoId : video.id})" layout-padding>
-                        <h3 ui-sref="watch({ videoId : video.id})" >
-                            {{video.title}}
+
+                    <div class="md-tile-content clickable" ui-sref="watch({ videoId : video.id})" layout-padding layout="column" layout-align="end start">
+                        <div layout="column" layout-align="start start" ui-sref="watch({ videoId : video.id})" layout-padding>
+                            <div>{{video.title}}</div>
+                            <div>{{video.description}}</div>
                             
-                        </h3>
-                        <h4>{{video.url}}</h4>
-                        <p>
-                            {{video.description}}
+                        </div>
                         </p>
                         <md-tooltip md-direction="left">Watch video</md-tooltip>
                     </div>
                     
                     <div class="md-tile-right" layout-padding >
-                    <md-button class="md-fab md-primary md-hue-3" aria-label="Profile" ng-click="video.fave = !video.fave">
-                        <i class="fa fa-2x" style="color:pink;"  ng-class="{'fa-heart':video.fave,'fa-heart-o':!video.fave}"></i>
+                    <md-button class="md-fab md-primary md-hue-3" aria-label="Profile" ng-click="favorite(video)">
+                        <i class="fa fa-2x favorite"   ng-class="{'fa-heart':video.fave,'fa-heart-o':!video.fave}"></i>
                         <md-tooltip md-direction="left">Make favorite</md-tooltip>
                     </md-button>
                         
