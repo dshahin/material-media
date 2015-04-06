@@ -43,28 +43,28 @@ function DataFactory($q, $rootScope, $log) {
             'logo': 'codescience-logo.png',
             'fave' : true
         }, {
-            'id' : '0',
+            'id' : '1',
             'title': 'Big Blue Dot',
             'url': 'https://angularjs.org/',
             'description': 'Life on Earth',
             'logo': 'pale-blue-dot.jpg',
             'fave' : true
         }, {
-            'id' : '1',
+            'id' : '2',
             'title': 'Big Buck Bunny',
             'url': 'http://browsersync.io/',
             'description': 'Funny Animals made with open source tools.',
             'logo': 'bigbuckbunny.png',
             'fave' : false
         }, {
-            'id' : '2',
+            'id' : '3',
             'title': 'The Chris Shahin Project',
             'url': 'http://browsersync.io/',
             'description': 'The Ulitimate Rock Experience',
             'logo': 'kiss.jpg',
             'fave' : false
         }, {
-            'id' : '3',
+            'id' : '4',
             'title': 'Edison\'s Frankenstein',
             'url': 'http://browsersync.io/',
             'description': 'Early film experiments by Thomas Edison',
