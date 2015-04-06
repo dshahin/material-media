@@ -29,7 +29,7 @@
             </md-checkbox>
         </div>
         <md-button class="md-fab md-mini md-accent" aria-label="Mini FAB" ng-click="WC.bookmark(API.currentTime)">
-                <i class="fa fa-bookmark-o"><md-tooltip md-direction="right">&#8984;B to bookmark</md-tooltip></i>
+                <i class="fa fa-bookmark bookmark" style="color:gray;"><md-tooltip md-direction="right">&#8984;B to bookmark</md-tooltip></i>
             </md-button>
         <div flex="20" flex-order-md="2" flex-order-lt-md="2" class="bookmarksColumn" ng-show="bookmarks.length > 0" >
 
@@ -38,7 +38,7 @@
                     <md-item-content style="padding:5px;" >
                         <div layout="row" class="md-tile-left clickable" layout-padding>
                             <div layout=column layout-padding hide-lt-lg>
-                                <i class="fa fa-bookmark fa-2x" style="color:#8BC34A;" ng-click="API.seekTime(bookmark.time/1000)"></i>
+                                <i class="fa fa-bookmark fa-2x" style="color:gray;" ng-click="API.seekTime(bookmark.time/1000)"></i>
                             </div>
                             <div layout="column" layout-padding>
                                 <div layout="row" ng-click="API.seekTime(bookmark.time/1000)">{{bookmark.time| date:'mm:ss' }}</div>

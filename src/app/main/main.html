@@ -15,8 +15,8 @@
 
                     <div class="md-tile-content clickable" ui-sref="watch({ videoId : video.id})" layout-padding layout="column" layout-align="end start">
                         <div layout="column" layout-align="start start" ui-sref="watch({ videoId : video.id})" layout-padding>
-                            <div>{{video.title}}</div>
-                            <div>{{video.description}}</div>
+                            <h2 class="md-display-1">{{video.title}}</h2 >
+                            <small class="md-caption">{{video.description}}</small>
                             
                         </div>
                         </p>
@@ -24,7 +24,7 @@
                     </div>
                     
                     <div class="md-tile-right" layout-padding >
-                        <md-button class="md-fab md-accent md-hue-3" aria-label="Profile" ng-click="favorite(video)">
+                        <md-button class="md-fab md-primary " aria-label="Profile" ng-click="favorite(video)">
                             <i class="fa fa-2x favorite"   ng-class="{'fa-heart':video.fave,'fa-heart-o':!video.fave}"></i>
                             <md-tooltip md-direction="left">Make favorite</md-tooltip>
                         </md-button>
