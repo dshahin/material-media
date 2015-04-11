@@ -9,7 +9,11 @@ angular.module('materialMedia', ['ngAnimate', 'ngTouch', 'ngSanitize', 'ui.route
 								'com.2fdevs.videogular.plugins.poster'
 
 	])
-  .config(function ( $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider) {
+  .config(function ( $stateProvider, $urlRouterProvider, $mdThemingProvider, $mdIconProvider,$compileProvider,$logProvider) {
+
+    $compileProvider.debugInfoEnabled(false);
+
+    $logProvider.debugEnabled(true);
 
   	$mdThemingProvider.theme('default')
     .primaryPalette('light-blue')
